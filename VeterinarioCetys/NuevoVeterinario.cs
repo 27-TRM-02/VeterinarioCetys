@@ -33,11 +33,11 @@ namespace VeterinarioCetys
             if (resultado)
             {
                 this.Hide();
-                MessageBox.Show("TODO BIEN PAPI");
+                MessageBox.Show("CREACIÓN COMPLETADA");
             }
             else
             {
-                MessageBox.Show("ALGO MALO HA PASADOOOO");
+                MessageBox.Show("ALGO MALO HA PASADO");
             }
         }
     }

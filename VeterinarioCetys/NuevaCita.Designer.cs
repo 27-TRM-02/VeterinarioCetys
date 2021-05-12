@@ -66,7 +66,7 @@ namespace VeterinarioCetys
             this.newVeteriBoton.Name = "newVeteriBoton";
             this.newVeteriBoton.Size = new System.Drawing.Size(229, 49);
             this.newVeteriBoton.TabIndex = 52;
-            this.newVeteriBoton.Text = "CREAR USUARIO";
+            this.newVeteriBoton.Text = "CREAR";
             this.newVeteriBoton.UseVisualStyleBackColor = false;
             this.newVeteriBoton.Click += new System.EventHandler(this.newVeteriBoton_Click);
             // 
@@ -193,6 +193,7 @@ namespace VeterinarioCetys
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "NuevaCita";
             this.Text = "NuevaCita";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

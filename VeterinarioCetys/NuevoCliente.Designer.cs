@@ -29,7 +29,6 @@ namespace VeterinarioCetys
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NuevoCliente));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.newClienteBoton = new System.Windows.Forms.Button();
             this.movilText = new System.Windows.Forms.TextBox();
@@ -170,7 +169,7 @@ namespace VeterinarioCetys
             this.Controls.Add(this.dniText);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "NuevoCliente";
             this.Text = "NuevoCliente";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

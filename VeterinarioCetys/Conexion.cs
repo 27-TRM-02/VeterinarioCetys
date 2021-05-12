@@ -12,7 +12,7 @@ namespace VeterinarioCetys
     {
         //variable que se encarga de conectarnos al servidor MySql
         public MySqlConnection bbdd;
-
+        public static String DNI = "";
         public Conexion()
         {
             // Conexión con la base de datos MySql
@@ -190,6 +190,25 @@ namespace VeterinarioCetys
             }
         }
 
+        public int getIdActivo()
+        {
+            try
+            {
+                bbdd.Open();
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM t_veterinarios WHERE DNI='" + DNI + "'", bbdd);
+                MySqlDataReader resultado = consulta.ExecuteReader(); //guardo el resultado de la query
+                resultado.Read();
+                int idUser = Int32.Parse(resultado.GetString("ID"));
+                bbdd.Close();
+                return idUser;
+            }
+            catch (MySqlException e)
+            {
+                bbdd.Close();
+                throw e;
+            }
+        }
+
         public DataTable getMascota(String _Chip)
         {
             try
@@ -208,13 +227,12 @@ namespace VeterinarioCetys
                 throw e;
             }
         }
-
-        public DataTable getDB()
+        public DataTable getMascotas()
         {
             try
             {
                 bbdd.Open();
-                MySqlCommand consulta = new MySqlCommand("SELECT * FROM t_mascotas, bbdd");
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM t_mascotas", bbdd);
                 MySqlDataReader resultado = consulta.ExecuteReader(); //guardo el resultado de la query
                 DataTable mascotas = new DataTable(); //formato que espera el datagridview
                 mascotas.Load(resultado);  //convierte MysqlDataReader en DataTable
@@ -228,5 +246,156 @@ namespace VeterinarioCetys
             }
         }
 
+        public DataTable getCliente(String _DNI)
+        {
+            try
+            {
+                bbdd.Open();
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM t_clientes WHERE DNI='" + _DNI + "'", bbdd);
+                MySqlDataReader resultado = consulta.ExecuteReader(); //guardo el resultado de la query
+                DataTable cliente = new DataTable(); //formato que espera el datagridview
+                cliente.Load(resultado);  //convierte MysqlDataReader en DataTable
+                bbdd.Close();
+                return cliente;
+            }
+            catch (MySqlException e)
+            {
+                bbdd.Close();
+                throw e;
+            }
+        }
+
+
+        public DataTable getClientes()
+        {
+            try
+            {
+                bbdd.Open();
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM t_clientes", bbdd);
+                MySqlDataReader resultado = consulta.ExecuteReader(); //guardo el resultado de la query
+                DataTable clientes = new DataTable(); //formato que espera el datagridview
+                clientes.Load(resultado);  //convierte MysqlDataReader en DataTable
+                bbdd.Close();
+                return clientes;
+            }
+            catch (MySqlException e)
+            {
+                bbdd.Close();
+                throw e;
+            }
+        }
+
+        public DataTable getVeterinarios()
+        {
+            try
+            {
+                bbdd.Open();
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM t_veterinarios", bbdd);
+                MySqlDataReader resultado = consulta.ExecuteReader(); //guardo el resultado de la query
+                DataTable veterinarios = new DataTable(); //formato que espera el datagridview
+                veterinarios.Load(resultado);  //convierte MysqlDataReader en DataTable
+                bbdd.Close();
+                return veterinarios;
+            }
+            catch (MySqlException e)
+            {
+                bbdd.Close();
+                throw e;
+            }
+        }
+        public DataTable getVeterinario(String _DNI)
+        {
+            try
+            {
+                bbdd.Open();
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM t_veterinarios WHERE DNI='" + _DNI + "'", bbdd);
+                MySqlDataReader resultado = consulta.ExecuteReader(); //guardo el resultado de la query
+                DataTable veterinario = new DataTable(); //formato que espera el datagridview
+                veterinario.Load(resultado);  //convierte MysqlDataReader en DataTable
+                bbdd.Close();
+                return veterinario;
+            }
+            catch (MySqlException e)
+            {
+                bbdd.Close();
+                throw e;
+            }
+        }
+        public DataTable getVeterinariosEsp(String _Especialidad)
+        {
+            try
+            {
+                bbdd.Open();
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM t_veterinarios WHERE Especialidad='" + _Especialidad + "'", bbdd);
+                MySqlDataReader resultado = consulta.ExecuteReader(); //guardo el resultado de la query
+                DataTable citasVeteri = new DataTable(); //formato que espera el datagridview
+                citasVeteri.Load(resultado);  //convierte MysqlDataReader en DataTable
+                bbdd.Close();
+                return citasVeteri;
+            }
+            catch (MySqlException e)
+            {
+                bbdd.Close();
+                throw e;
+            }
+        }
+
+
+
+
+        public DataTable getCitas()
+        {
+            try
+            {
+                bbdd.Open();
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM t_citas", bbdd);
+                MySqlDataReader resultado = consulta.ExecuteReader(); //guardo el resultado de la query
+                DataTable citas = new DataTable(); //formato que espera el datagridview
+                citas.Load(resultado);  //convierte MysqlDataReader en DataTable
+                bbdd.Close();
+                return citas;
+            }
+            catch (MySqlException e)
+            {
+                bbdd.Close();
+                throw e;
+            }
+        }
+        public DataTable getCitasVeteri(String _DNI)
+        {
+            try
+            {
+                bbdd.Open();
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM t_citas WHERE Veterinario_Cita='" + _DNI + "'", bbdd);
+                MySqlDataReader resultado = consulta.ExecuteReader(); //guardo el resultado de la query
+                DataTable citasVeteri = new DataTable(); //formato que espera el datagridview
+                citasVeteri.Load(resultado);  //convierte MysqlDataReader en DataTable
+                bbdd.Close();
+                return citasVeteri;
+            }
+            catch (MySqlException e)
+            {
+                bbdd.Close();
+                throw e;
+            }
+        }
+        public DataTable getCitasMascota(String _Chip)
+        {
+            try
+            {
+                bbdd.Open();
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM t_citas WHERE Mascota_Cita='" + _Chip + "'", bbdd);
+                MySqlDataReader resultado = consulta.ExecuteReader(); //guardo el resultado de la query
+                DataTable citasMascotas = new DataTable(); //formato que espera el datagridview
+                citasMascotas.Load(resultado);  //convierte MysqlDataReader en DataTable
+                bbdd.Close();
+                return citasMascotas;
+            }
+            catch (MySqlException e)
+            {
+                bbdd.Close();
+                throw e;
+            }
+        }
     }
 }

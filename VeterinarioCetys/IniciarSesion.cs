@@ -22,15 +22,17 @@ namespace VeterinarioCetys
 
         private void loginBoton_Click(object sender, EventArgs e)
         {
-            if (conexion.loginVeterinario(dniText.Text, passwordText.Text))
+            String dniLogin = dniText.Text;
+            if (conexion.loginVeterinario(dniLogin, passwordText.Text))
             {
+                Conexion.DNI = dniLogin;
                 this.Hide();
                 Casa c = new Casa();
                 c.Show();
             }
             else
             {
-                MessageBox.Show("EL USUUARIO O LA CONTRASEÑA SON INCORRECTOS");
+                MessageBox.Show("EL USUARIO O LA CONTRASEÑA SON INCORRECTOS");
             }
         }
 
