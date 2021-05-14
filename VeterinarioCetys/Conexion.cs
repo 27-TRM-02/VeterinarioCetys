@@ -339,10 +339,6 @@ namespace VeterinarioCetys
                 throw e;
             }
         }
-
-
-
-
         public DataTable getCitas()
         {
             try

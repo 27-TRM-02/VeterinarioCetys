@@ -42,6 +42,7 @@ namespace VeterinarioCetys
             MySqlCommand consulta = new MySqlCommand("SELECT DNI, password FROM t_veterinarios", conexion.bbdd);
             MySqlDataReader resultado = consulta.ExecuteReader();
             Dictionary<string, string> passwords = new Dictionary<string, string>();
+            // Introduce las contraseñas y los dnis en el dictionary
             while (resultado.Read())
             {
                 passwords.Add(resultado.GetString("DNI"), resultado.GetString("password"));
