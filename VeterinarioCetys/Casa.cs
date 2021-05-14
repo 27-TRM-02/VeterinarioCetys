@@ -84,7 +84,7 @@ namespace VeterinarioCetys
 
         private void buscarCitaMascotaBoton_Click(object sender, EventArgs e)
         {
-            citasMascota = conexion.getCitasMascota(chipBusquedaText.Text);
+            citasMascota = conexion.getCitasMascota(chipCitaBusquedaText.Text);
             citasVeteriData.DataSource = citasMascota;
         }
 
@@ -106,8 +106,11 @@ namespace VeterinarioCetys
             veterinariosData.DataSource = veterinariosEsp;
         }
 
-
-
-
+        private void logOutBoton_Click(object sender, EventArgs e)
+        {
+            IniciarSesion c = new IniciarSesion();
+            this.Hide();
+            c.Show();
+        }
     }
 }

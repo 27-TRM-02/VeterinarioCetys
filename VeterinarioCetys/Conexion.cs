@@ -95,7 +95,7 @@ namespace VeterinarioCetys
                 MySqlCommand consulta = new MySqlCommand("INSERT INTO t_mascotas (Chip, Nombre, Raza, Edad, Genero, Amo, VeterinarioPersonal) VALUES (@_Chip, @_Nombre, @_Raza, @_Edad, @_Genero, @_Amo, @_VeterinarioD) ", bbdd);
 
                 consulta.Parameters.AddWithValue("@_Chip", _Chip);
-                consulta.Parameters.AddWithValue("@_Nombre", _Nombre);
+                consulta.Parameters.AddWithValue("@_Nombre", _Nombre); 
                 consulta.Parameters.AddWithValue("@_Raza", _Raza);
                 consulta.Parameters.AddWithValue("@_Edad", _Edad);
                 consulta.Parameters.AddWithValue("@_Genero", _Genero);
@@ -386,10 +386,10 @@ namespace VeterinarioCetys
                 bbdd.Open();
                 MySqlCommand consulta = new MySqlCommand("SELECT * FROM t_citas WHERE Mascota_Cita='" + _Chip + "'", bbdd);
                 MySqlDataReader resultado = consulta.ExecuteReader(); //guardo el resultado de la query
-                DataTable citasMascotas = new DataTable(); //formato que espera el datagridview
-                citasMascotas.Load(resultado);  //convierte MysqlDataReader en DataTable
+                DataTable citasMascota = new DataTable(); //formato que espera el datagridview
+                citasMascota.Load(resultado);  //convierte MysqlDataReader en DataTable
                 bbdd.Close();
-                return citasMascotas;
+                return citasMascota;
             }
             catch (MySqlException e)
             {

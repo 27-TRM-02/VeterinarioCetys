@@ -69,6 +69,7 @@ namespace VeterinarioCetys
             this.buscarMascotaBoton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControlCasa = new System.Windows.Forms.TabControl();
+            this.logOutBoton = new System.Windows.Forms.Button();
             this.tabNewClients.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.tabAddVete.SuspendLayout();
@@ -398,6 +399,7 @@ namespace VeterinarioCetys
             // 
             // tabDataView
             // 
+            this.tabDataView.Controls.Add(this.logOutBoton);
             this.tabDataView.Controls.Add(this.label2);
             this.tabDataView.Controls.Add(this.label1);
             this.tabDataView.Controls.Add(this.clienteBusquedaData);
@@ -500,12 +502,10 @@ namespace VeterinarioCetys
             // 
             // tabControlCasa
             // 
-
             this.tabControlCasa.Controls.Add(this.tabDataView);
             this.tabControlCasa.Controls.Add(this.tabCitas);
             this.tabControlCasa.Controls.Add(this.tabAddVete);
             this.tabControlCasa.Controls.Add(this.tabNewClients);
-
             this.tabControlCasa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControlCasa.ImageList = this.imageList1;
             this.tabControlCasa.Location = new System.Drawing.Point(2, 12);
@@ -513,6 +513,17 @@ namespace VeterinarioCetys
             this.tabControlCasa.SelectedIndex = 0;
             this.tabControlCasa.Size = new System.Drawing.Size(788, 453);
             this.tabControlCasa.TabIndex = 0;
+            // 
+            // logOutBoton
+            // 
+            this.logOutBoton.BackColor = System.Drawing.Color.Red;
+            this.logOutBoton.Location = new System.Drawing.Point(298, 367);
+            this.logOutBoton.Name = "logOutBoton";
+            this.logOutBoton.Size = new System.Drawing.Size(189, 47);
+            this.logOutBoton.TabIndex = 10;
+            this.logOutBoton.Text = "CERRAR SESIÓN";
+            this.logOutBoton.UseVisualStyleBackColor = false;
+            this.logOutBoton.Click += new System.EventHandler(this.logOutBoton_Click);
             // 
             // Casa
             // 
@@ -583,5 +594,6 @@ namespace VeterinarioCetys
         private System.Windows.Forms.Button buscarMascotaBoton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TabControl tabControlCasa;
+        private System.Windows.Forms.Button logOutBoton;
     }
 }
